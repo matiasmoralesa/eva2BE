@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Contenido específico del registro de doctores -->
+    <h1>Registrar Doctor</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input type="text" id="id_nombre" name="nombre" class="validate">
+                <label for="id_nombre">Nombre del doctor</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input type="text" id="id_rut" name="rut" class="validate">
+                <label for="id_rut">RUT del doctor</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" id="id_telefono" name="telefono" class="validate">
+                <label for="id_telefono">Teléfono de contacto</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="email" id="id_correo" name="correo" class="validate">
+                <label for="id_correo">Correo electrónico</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" id="id_especialidad" name="especialidad" class="validate">
+                <label for="id_especialidad">Especialidad del doctor</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="id_turno" name="turno">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+                <label for="id_turno">¿Está en turno?</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Registrar</button>
+        </div>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+{% endblock %}
+
+
+

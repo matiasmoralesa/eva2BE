@@ -16,7 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from doctores import views as app1
+
+
+app_name = 'doctores' 
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('doctores/', app1.listar_doctores, name='listar_doctores'),
+    path('', app1.pagina_principal, name='pagina_principal'),
+    path('registrar_doctor/', app1.registrar_doctor, name='registrar_doctor'),
+    path('editar_doctor/<int:id>/', app1.editar_doctor, name='editar_doctor'),
+    path('eliminar_doctor/<int:doctor_id>/', app1.eliminar_doctor, name='eliminar_doctor'),
+    
 ]
+

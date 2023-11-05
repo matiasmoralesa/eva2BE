@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h3>Lista de Doctores</h3>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Especialidad</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for doctor in doctores %}
+          <tr>
+            <td>{{ doctor.nombre }}</td>
+            <td>{{ doctor.especialidad }}</td>
+            <td>{{ doctor.telefono }}</td>
+            <td>{{ doctor.correo }}</td>
+            <td>
+              <a class="btn waves-effect waves-light" href="{% url 'editar_doctor' doctor.id %}">
+                Modificar
+                <i class="material-icons right">edit</i>
+              </a>
+              <a class="btn waves-effect waves-light red" href="{% url 'eliminar_doctor' doctor.id %}">
+                Eliminar
+                <i class="material-icons right">delete</i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
+
