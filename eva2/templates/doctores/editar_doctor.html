@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
   <div class="container">
     <h1>Editar Doctor</h1>
     <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }} 
+      {% csrf_token %}  <!-- Agrega un token CSRF para seguridad -->
+      {{ form.as_p }}  <!-- Muestra el formulario con los campos en formato de párrafos -->
       <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios
-        <i class="material-icons right">save</i>
+        <i class="material-icons right">save</i>  <!-- Icono de guardado a la derecha del botón -->
       </button>
     </form>
   </div>
 {% endblock %}
+

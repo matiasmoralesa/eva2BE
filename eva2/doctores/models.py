@@ -15,3 +15,4 @@ class Doctor(models.Model):
         verbose_name = "Doctor"
         verbose_name_plural = "Doctores"
 
+

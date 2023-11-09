@@ -30,4 +30,7 @@ class DoctorForm(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'placeholder': 'Ejemplo: +56 9 1234 5678'}),
             'correo': forms.EmailInput(attrs={'placeholder': 'Ejemplo: doctor@example.com'}),
             'especialidad': forms.TextInput(attrs={'placeholder': 'Ejemplo: Cardiología'}),
-        }  # Widgets para personalizar la apariencia de los campos
+            'turno': forms.CheckboxInput(),  
+        }# Agrega un widget de casilla de verificación para el campo "turno"
+
+

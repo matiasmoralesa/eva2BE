@@ -13,7 +13,7 @@
             </div>
             <div class="input-field col s12 m6">
                 <input type="text" id="id_rut" name="rut" class="validate">
-                <label for="id_rut">RUT del doctor</label>
+                <label for ="id_rut">RUT del doctor</label>
             </div>
         </div>
         <div class="row">
@@ -48,12 +48,14 @@
         </div>
     </form>
     <script>
+        // Inicializar el elemento de selección (select) con Materialize
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('select');
             var instances = M.FormSelect.init(elems);
         });
     </script>
 {% endblock %}
+
 
 
 
