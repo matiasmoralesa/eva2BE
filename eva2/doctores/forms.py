@@ -22,12 +22,6 @@ class DoctorForm(forms.ModelForm):
             'especialidad': 'Especifica la especialidad del doctor.',
             'turno': 'Marca esta casilla si el doctor está en turno.',
         }
-        # validacion personalizada para el correo
-        def clean_correo(self):
-            correo = self.cleaned_data['correo']
-            if not correo or '@' not in correo:
-                raise forms.ValidationError('El correo electrónico es obligatorio y debe contener un "@"')
-            return correo
 
         widgets = {
             'nombre': forms.TextInput(attrs={'placeholder': 'Ejemplo: Dr. Juan Pérez'}),
@@ -37,5 +31,21 @@ class DoctorForm(forms.ModelForm):
             'especialidad': forms.TextInput(attrs={'placeholder': 'Ejemplo: Cardiología'}),
             'turno': forms.CheckboxInput(),  
         }
+
+        # validacion personalizada para el correo
+        def clean_correo(self):
+            correo = self.cleaned_data['correo']
+            if not correo or '@' not in correo:
+                raise forms.ValidationError('El correo electrónico es obligatorio y debe contener un "@"')
+            return correo
+        
+        # validacion personalizada para el rut
+        def clean_rut(self):
+            rut = self.cleaned_data['rut']
+            if not rut or not rut.match(r'^\d{8}-\d$'):
+                raise forms.ValidationError('El RUT debe tener el formato correcto: xxxxxxxx-x')
+            return rut
+
+        
 
 
