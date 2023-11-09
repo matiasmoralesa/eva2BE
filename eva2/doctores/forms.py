@@ -13,8 +13,7 @@ class DoctorForm(forms.ModelForm):
             'correo': 'Correo electrónico',
             'especialidad': 'Especialidad del doctor',
             'turno': '¿Está en turno?',
-        }  # Etiquetas personalizadas para los campos
-
+        }
         help_texts = {
             'nombre': 'Ingresa el nombre completo del doctor.',
             'rut': 'Ingresa el RUT del doctor (ejemplo: 12.345.678-9).',
@@ -22,7 +21,13 @@ class DoctorForm(forms.ModelForm):
             'correo': 'Ingresa el correo electrónico del doctor.',
             'especialidad': 'Especifica la especialidad del doctor.',
             'turno': 'Marca esta casilla si el doctor está en turno.',
-        }  # Textos de ayuda para los campos
+        }
+        # validacion personalizada para el correo
+        def clean_correo(self):
+            correo = self.cleaned_data['correo']
+            if not correo or '@' not in correo:
+                raise forms.ValidationError('El correo electrónico es obligatorio y debe contener un "@"')
+            return correo
 
         widgets = {
             'nombre': forms.TextInput(attrs={'placeholder': 'Ejemplo: Dr. Juan Pérez'}),
@@ -31,6 +36,6 @@ class DoctorForm(forms.ModelForm):
             'correo': forms.EmailInput(attrs={'placeholder': 'Ejemplo: doctor@example.com'}),
             'especialidad': forms.TextInput(attrs={'placeholder': 'Ejemplo: Cardiología'}),
             'turno': forms.CheckboxInput(),  
-        }# Agrega un widget de casilla de verificación para el campo "turno"
+        }
 
 
