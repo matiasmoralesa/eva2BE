@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'doctores',
+    'pacientes',
+    'consultas',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'eva2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DOCTOR',
+        'NAME': 'HOSPITAL',
         'USER': 'root',
         'HOST': 'localhost',
         'PORT': '3306'
