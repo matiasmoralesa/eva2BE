@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Contenido específico del registro de consultas -->
+    <div class="container">
+        <h1>Registrar Consulta</h1>
+        <form method="post" class="col s12">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="id_paciente" name="paciente" required>
+                        {% for paciente in pacientes %}
+                            <option value="{{ paciente.id }}">{{ paciente.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="id_paciente">Paciente</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="id_doctor" name="doctor" required>
+                        {% for doctor in doctores %}
+                            <option value="{{ doctor.id }}">{{ doctor.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="id_doctor">Doctor</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input type="date" id="id_fecha" name="fecha" class="validate" required>
+                    <label for="id_fecha">Fecha de la consulta</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input type="time" id="id_hora" name="hora" class="validate" required>
+                    <label for="id_hora">Hora de la consulta</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="id_sexo" name="sexo" required>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <label for="id_sexo">Sexo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="id_nivel_riesgo" name="nivel_riesgo" required>
+                        <option value="Moderado">Moderado</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Severo">Severo</option>
+                    </select>
+                    <label for="id_nivel_riesgo">Nivel de Riesgo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="id_motivo" name="motivo" class="materialize-textarea" required></textarea>
+                    <label for="id_motivo">Motivo de la consulta</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Registrar</button>
+            </div>
+            {% if form.errors %}
+                <div class="errors">
+                    <h3>Errores en el formulario:</h3>
+                    <ul>
+                        {% for error in form.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% for choice in form.sexo %}
+                {{ choice }}
+            {% endfor %}
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(elems);
+            });
+        </script>
+    </div>
+{% endblock %}

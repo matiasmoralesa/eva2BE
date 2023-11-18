@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h3>Lista de Consultas</h3>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Doctor</th>
+          <th>Fecha</th>
+          <th>Sexo</th>
+          <th>Hora</th>
+          <th>Nivel de Riesgo</th>
+          <th>Motivo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for consulta in consultas %}
+          <tr>
+            <td>{{ consulta.paciente.nombre }}</td>
+            <td>{{ consulta.doctor.nombre }}</td>
+            <td>{{ consulta.fecha }}</td>
+            <td>{{ consulta.sexo }}</td>
+            <td>{{ consulta.hora }}</td>
+            <td>{{ consulta.nivel_riesgo }}</td>
+            <td>{{ consulta.motivo }}</td>
+            <td>
+              <a class="btn waves-effect waves-light" href="{% url 'editar_consulta' consulta.id %}">
+                Modificar
+              </a>
+              <a class="btn waves-effect waves-light red" href="{% url 'eliminar_consulta' consulta.id %}">
+                Eliminar
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

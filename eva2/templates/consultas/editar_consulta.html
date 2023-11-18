@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Editar Consulta</h1>
+  <form method="post">
+      {% csrf_token %}
+      <div class="row">
+          <div class="input-field col s12">
+              {{ form.paciente }}
+              <label for="{{ form.paciente.id_for_label }}">Paciente</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              {{ form.doctor }}
+              <label for="{{ form.doctor.id_for_label }}">Doctor</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12 m6">
+              {{ form.fecha }}
+              <label for="{{ form.fecha.id_for_label }}">Fecha de la consulta</label>
+          </div>
+          <div class="input-field col s12 m6">
+              {{ form.hora }}
+              <label for="{{ form.hora.id_for_label }}">Hora de la consulta</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              {{ form.sexo }}
+              <label for="{{ form.sexo.id_for_label }}">Sexo</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              {{ form.nivel_riesgo }}
+              <label for="{{ form.nivel_riesgo.id_for_label }}">Nivel de Riesgo</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              {{ form.motivo }}
+              <label for="{{ form.motivo.id_for_label }}">Motivo de la consulta</label>
+          </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios</button>
+  </form>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+{% endblock %}
+
+

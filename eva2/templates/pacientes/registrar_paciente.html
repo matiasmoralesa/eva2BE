@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Contenido específico del registro de pacientes -->
+    <div class="container">
+        <h1>Registrar Paciente</h1>
+        <form method="post" class="col s12">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input type="text" id="id_nombre" name="nombre" class="validate" required>
+                    <label for="id_nombre">Nombre del paciente</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input type="text" id="id_rut" name="rut" class="validate" pattern="\d{7,8}-\d{1}" required>
+                    <label for="id_rut">RUT del paciente (ejemplo: 12345678-9)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="id_direccion" name="direccion" class="validate" required>
+                    <label for="id_direccion">Dirección del paciente</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input type="number" id="id_edad" name="edad" class="validate" required>
+                    <label for="id_edad">Edad del paciente</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input type="tel" id="id_telefono" name="telefono" class="validate" required>
+                    <label for="id_telefono">Teléfono de contacto</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" id="id_correo" name="correo" class="validate" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                    <label for="id_correo">Correo electrónico</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

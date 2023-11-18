@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h3>Lista de Pacientes</h3>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>RUT</th>
+          <th>Edad</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for paciente in pacientes %}
+          <tr>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.rut }}</td>
+            <td>{{ paciente.edad }}</td>
+            <td>{{ paciente.direccion }}</td>
+            <td>{{ paciente.telefono }}</td>
+            <td>{{ paciente.correo }}</td>
+            <td>
+              <a class="btn waves-effect waves-light" href="{% url 'editar_paciente' paciente.id %}">
+                Modificar
+              </a>
+              <a class="btn waves-effect waves-light red" href="{% url 'eliminar_paciente' paciente.id %}">
+                Eliminar
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
+
+   

@@ -3,6 +3,12 @@
 <head>
     <title>Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        /* Añade un estilo personalizado para resaltar la opción de Consultas */
+        #nav-mobile li:hover ul li a {
+            color: #1565c0 !important;  /* Cambia el color al pasar el ratón por encima */
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -10,9 +16,33 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Hospital Rosario</a>  <!-- Título del hospital en el logo -->
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/">Inicio</a></li>  <!-- Enlace a la página de inicio -->
-                <li><a href="/doctores/">Doctores</a></li>  <!-- Enlace a la lista de doctores -->
-                <li><a href="/registrar_doctor/">Registrar Doctor</a></li>  <!-- Enlace para registrar un nuevo doctor -->
+                <li>
+                    <a href="/">Inicio</a>  <!-- Enlace a la página de inicio -->
+                </li>
+                <li>
+                    <a href="/doctores/">Doctores</a>  <!-- Enlace a la lista de doctores -->
+                    <ul>
+                        <li><a href="/registrar_doctor/">Registrar Doctor</a></li>  <!-- Enlace para registrar un nuevo doctor -->
+                        <!-- Otros submenús para operaciones relacionadas con doctores -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="/pacientes/">Pacientes</a>  <!-- Enlace a la lista de pacientes -->
+                    <ul>
+                        <li><a href="/registrar_paciente/">Registrar Paciente</a></li>  <!-- Enlace para registrar un nuevo paciente -->
+                        <!-- Otros submenús para operaciones relacionadas con pacientes -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="/consultas/">Consultas</a>  <!-- Enlace a la lista de consultas -->
+                    <ul>
+                        <li><a href="/registrar_consulta/">Registrar Consulta</a></li>  <!-- Enlace para registrar una nueva consulta -->
+                        <!-- Otros submenús para operaciones relacionadas con consultas -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="/admin/">Admin</a>  <!-- Enlace para acceder al panel de administración -->
+                </li>
             </ul>
         </div>
     </nav>
@@ -23,5 +53,4 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
-
 

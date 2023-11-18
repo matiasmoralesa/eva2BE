@@ -1,15 +1,23 @@
 from django.db import models
+from doctores.models import Doctor
+from pacientes.models import Paciente
 
 class Consulta(models.Model):
-    from doctores.models import Doctor
-    from pacientes.models import Paciente
-    
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE) 
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     fecha = models.DateField()
-    sexo = models.CharField(max_length=10)
+    SEXO_CHOICES = [
+    ('masculino', 'Masculino'),
+    ('femenino', 'Femenino'),
+    ]
+    sexo = models.CharField(max_length=10, choices=SEXO_CHOICES)
     hora = models.TimeField()
-    nivel_riesgo = models.CharField(max_length=50)
+    NIVEL_RIESGO_CHOICES = [
+    ('moderado', 'Moderado'),
+    ('intermedio', 'Intermedio'),
+    ('severo', 'Severo'),
+]
+    nivel_riesgo = models.CharField(max_length=50, choices=NIVEL_RIESGO_CHOICES)
     motivo = models.TextField()
 
     def __str__(self):
@@ -18,5 +26,6 @@ class Consulta(models.Model):
     class Meta:
         verbose_name = "Consulta"
         verbose_name_plural = "Consultas"
+
 
 
