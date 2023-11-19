@@ -7,15 +7,15 @@ class Consulta(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     fecha = models.DateField()
     SEXO_CHOICES = [
-    ('masculino', 'Masculino'),
-    ('femenino', 'Femenino'),
+    ( 'Masculino','Masculino'),
+    ('Femenino', 'Femenino'),
     ]
     sexo = models.CharField(max_length=10, choices=SEXO_CHOICES)
     hora = models.TimeField()
     NIVEL_RIESGO_CHOICES = [
-    ('moderado', 'Moderado'),
-    ('intermedio', 'Intermedio'),
-    ('severo', 'Severo'),
+    ('Moderado',' Moderado'),
+    ('Intermedio',' Intermedio'),
+    ('Severo', 'Severo'),
 ]
     nivel_riesgo = models.CharField(max_length=50, choices=NIVEL_RIESGO_CHOICES)
     motivo = models.TextField()

@@ -12,9 +12,9 @@ class ConsultaForm(forms.ModelForm):
 
     SEXO_CHOICES = [('Masculino', 'Masculino'), ('Femenino', 'Femenino')]
     NIVEL_RIESGO_CHOICES = [
-        ('moderado', 'Moderado'),
-        ('intermedio', 'Intermedio'),
-        ('severo', 'Severo'),
+        ('Moderado', 'Moderado'),
+        ('Intermedio', 'Intermedio'),
+        ('Severo', 'Severo'),
     ]
 
     paciente = forms.ModelChoiceField(queryset=None, label='Paciente')
