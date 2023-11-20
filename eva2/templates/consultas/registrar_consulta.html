@@ -63,19 +63,6 @@
             <div class="row">
                 <button class="btn waves-effect waves-light" type="submit">Registrar</button>
             </div>
-            {% if form.errors %}
-                <div class="errors">
-                    <h3>Errores en el formulario:</h3>
-                    <ul>
-                        {% for error in form.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            {% for choice in form.sexo %}
-                {{ choice }}
-            {% endfor %}
         </form>
         <script>
             document.addEventListener('DOMContentLoaded', function () {

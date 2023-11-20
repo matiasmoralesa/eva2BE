@@ -3,8 +3,33 @@
   <div class="container">
     <h1>Editar Doctor</h1>
     <form method="post">
-      {% csrf_token %}  <!-- Agrega un token CSRF para seguridad -->
-      {{ form.as_p }}  <!-- Muestra el formulario con los campos en formato de párrafos -->
+      {% csrf_token %}
+      <div class="input-field">
+        {{ form.nombre.label_tag }}
+        {{ form.nombre }}
+      </div>
+      <div class="input-field">
+        {{ form.rut.label_tag }}
+        {{ form.rut }}
+      </div>
+      <div class="input-field">
+        {{ form.telefono.label_tag }}
+        {{ form.telefono }}
+      </div>
+      <div class="input-field">
+        {{ form.correo.label_tag }}
+        {{ form.correo }}
+      </div>
+      <div class="input-field">
+        {{ form.especialidad.label_tag }}
+        {{ form.especialidad }}
+      </div>
+      <p>
+        <label>
+          {{ form.turno }}
+          <span>¿Está en turno?</span>
+        </label>
+      </p>
       <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios
       </button>
     </form>

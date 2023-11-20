@@ -1,10 +1,11 @@
+# forms.py
 from django import forms
 from .models import Doctor
 
 class DoctorForm(forms.ModelForm):
     class Meta:
-        model = Doctor  # Indicamos que este formulario está relacionado con el modelo Doctor
-        fields = '__all__'  # Incluye todos los campos del modelo en el formulario
+        model = Doctor
+        fields = '__all__'
 
         labels = {
             'nombre': 'Nombre del doctor',
@@ -29,7 +30,7 @@ class DoctorForm(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'placeholder': 'Ejemplo: +56 9 1234 5678'}),
             'correo': forms.EmailInput(attrs={'placeholder': 'Ejemplo: doctor@example.com'}),
             'especialidad': forms.TextInput(attrs={'placeholder': 'Ejemplo: Cardiología'}),
-            'turno': forms.CheckboxInput(),  
+            'turno': forms.CheckboxInput(),
         }
 
         # validacion personalizada para el correo
@@ -45,6 +46,7 @@ class DoctorForm(forms.ModelForm):
             if not rut or not rut.match(r'^\d{8}-\d$'):
                 raise forms.ValidationError('El RUT debe tener el formato correcto: xxxxxxxx-x')
             return rut
+
 
         
 

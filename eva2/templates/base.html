@@ -4,10 +4,53 @@
     <title>Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
-        /* Añade un estilo personalizado para resaltar la opción de Consultas */
-        #nav-mobile li:hover ul li a {
-            color: #1565c0 !important;  /* Cambia el color al pasar el ratón por encima */
+        body {
+            background-color: #e3f2fd; /* Color de fondo para toda la página */
+            color: #333; /* Color de texto principal */
+            font-family: 'Arial', sans-serif; /* Fuente principal */
         }
+
+        nav {
+            background-color: #1565c0; /* Color de fondo para la barra de navegación */
+        }
+
+        #nav-mobile li a {
+            color: #fff; /* Color del texto de los enlaces de la barra de navegación */
+        }
+
+        #nav-mobile li:hover ul li a {
+            color: #1565c0 !important; /* Cambia el color al pasar el ratón por encima de los submenús */
+        }
+
+        .container {
+            margin-top: 20px; /* Espacio superior para el contenido */
+            background-color: #e3f2fd; /* Color de fondo para el contenido */
+            padding: 20px; /* Espaciado interno para el contenido */
+            border-radius: 8px; /* Bordes redondeados para el contenido */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #1565c0; /* Color de los encabezados */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            background-color: #e3f2fd;
+        }
+
+        th {
+            background-color: #1565c0;
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
